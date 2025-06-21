@@ -102,8 +102,8 @@ async def clone_txt(client, message, _):
                 "name": bot.first_name,
                 "token": bot_token,
                 "username": bot.username,
-                "channel": "DEMONBotts",
-                "support": "DEMONBotGc",
+                "channel": "WerewolfDemonUpdate",
+                "support": "WerewolfDemonChatting",
                 "premium" : False,
                 "Date" : False,
             }
