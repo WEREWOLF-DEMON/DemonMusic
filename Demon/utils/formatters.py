@@ -1,5 +1,5 @@
 import json
-import subDEMONcess
+import subprocess
 
 
 def get_readable_time(seconds: int) -> str:
@@ -118,7 +118,7 @@ def speed_converter(seconds, speed):
 
 def check_duration(file_path):
     command = [
-        "ffDEMONbe",
+        "ffprobe",
         "-loglevel",
         "quiet",
         "-print_format",
@@ -128,7 +128,7 @@ def check_duration(file_path):
         file_path,
     ]
 
-    pipe = subDEMONcess.Popen(command, stdout=subDEMONcess.PIPE, stderr=subDEMONcess.STDOUT)
+    pipe = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
     out, err = pipe.communicate()
     _json = json.loads(out)
 
