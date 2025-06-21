@@ -6,7 +6,7 @@ from Demon import app
 
 #--------------------------
 
-MUST_JOIN = "DEMONBotts"
+MUST_JOIN = "WerewolfDemonChatting"
 
 #--------------------------
 
