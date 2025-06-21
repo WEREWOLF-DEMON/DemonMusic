@@ -15,13 +15,13 @@ API_HASH = getenv("API_HASH")
 BOT_TOKEN = getenv("BOT_TOKEN")
 BOT_ID = getenv("BOT_ID")
 # -------------------------------------------------------
-OWNER_USERNAME = getenv("OWNER_USERNAME","ZeoXDEMON")
+OWNER_USERNAME = getenv("OWNER_USERNAME","Demon")
 # --------------------------------------------------------
-BOT_USERNAME = getenv("BOT_USERNAME" , "AqiaBot")
+BOT_USERNAME = getenv("BOT_USERNAME" , "WerewolfDemon")
 # --------------------------------------------------------
-BOT_NAME = getenv("BOT_NAME" , "Aqia")
+BOT_NAME = getenv("BOT_NAME" , "WerewolfDemon")
 # ---------------------------------------------------------
-ASSUSERNAME = getenv("ASSUSERNAME" , "AqiaDEMON")
+ASSUSERNAME = getenv("ASSUSERNAME" , "DEMON")
 # ---------------------------------------------------------
 
 
@@ -54,10 +54,10 @@ HEROKU_API_KEY = getenv("HEROKU_API_KEY")
 # ----------------------------------------------------------------
 # ----------------------------------------------------------------
 # ----------------------------------------------------------------
-SOURCE = getenv("SOURCE", "https://github.com/TeamDEMONBots/Demon")
+SOURCE = getenv("SOURCE", "https://github.com/WEREWOLF-DEMON/DemonMusic")
 UPSTREAM_REPO = getenv(
     "UPSTREAM_REPO",
-    "https://github.com/TeamDEMONBots/Demon",
+    "https://github.com/WEREWOLF-DEMON/DemonMusic",
 )
 UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "master")
 GIT_TOKEN = getenv(
