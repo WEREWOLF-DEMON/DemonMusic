@@ -12,7 +12,7 @@ from .utils import StartTime
 from Demon.utils import get_readable_time
 from Demon.utils.decorators.language import language
 
-APP_LINK = f"https://t.me/AqiaBot"
+APP_LINK = f"https://t.me/PepexMusicBot"
 
 
 @Client.on_message(filters.command("clone"))
