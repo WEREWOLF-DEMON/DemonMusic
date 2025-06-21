@@ -58,7 +58,7 @@ telegraph
 tgcrypto
 unidecode
 wget
-yt-dlp
+yt-dlp[default]
 youtube-search
 youtube-search-python
 flask
