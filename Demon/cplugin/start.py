@@ -123,7 +123,7 @@ async def start_pm(client, message: Message, _):
         [
             InlineKeyboardButton(
                 text=_["S_B_3"],
-                url=f"https://t.me/{app.username}?startgroup=true",
+                url=f"https://t.me/{a.username}?startgroup=true",
             )
         ],
         [
