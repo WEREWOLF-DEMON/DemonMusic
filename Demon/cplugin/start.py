@@ -6,7 +6,6 @@ from pyrogram.enums import ChatType
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from youtubesearchpython.__future__ import VideosSearch
 from Demon import app
-import config *
 
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InputMediaPhoto
 import config
@@ -118,8 +117,8 @@ async def start_pm(client, message: Message, _):
             InlineKeyboardButton(text=_["S_B_4"], callback_data="settings_back_helper"),
         ],
         [
-            InlineKeyboardButton(text=_["S_B_2"], url=config.SUPPORT_CHAT),
-            InlineKeyboardButton(text=_["S_B_6"], url=config.SUPPORT_CHANNEL),
+            InlineKeyboardButton(text=_["S_B_2"], url=C_SUPPORT_CHAT),
+            InlineKeyboardButton(text=_["S_B_6"], url=C_SUPPORT_CHANNEL),
         ],
         [
             InlineKeyboardButton(
@@ -128,7 +127,7 @@ async def start_pm(client, message: Message, _):
             )
         ],
         [
-            InlineKeyboardButton(text=_["C_B_2"], user_id=config.OWNER_ID),
+            InlineKeyboardButton(text=_["C_B_2"], user_id=C_BOT_OWNER_ID),
         ],
     ]
         
