@@ -89,3 +89,6 @@ async def has_user_cloned_any_bot(user_id: int) -> bool:
         return True
     
     return False
+def is_bot_verified(bot_id: int) -> bool:
+    bot = clonebotdb.find_one({"bot_id": bot_id})
+    return bool(bot and bot.get("verified", False))
