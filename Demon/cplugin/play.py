@@ -1,8 +1,6 @@
 import os
 import random
 import string
-from Demon.utils.database.clonedb import is_bot_verified
-from Demon import app
 import asyncio
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InputMediaPhoto, Message
@@ -48,12 +46,7 @@ SPAM_WINDOW_SECONDS = 5
 
 
 
-@app.on_message(filters.command("play"))
-async def play_music(client, message):
-    bot_id = (await client.get_me()).id
-    if not is_bot_verified(bot_id):
-        return await message.reply_text("⛔ Ye cloned bot abhi verify nahi hua hai. Kripya @WerewolfDemon se verify karwaayein.")
-    
+
     # continue normally...
 @Client.on_message(
     filters.command(
