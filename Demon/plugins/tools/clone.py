@@ -47,6 +47,9 @@ C_BOT_COMMANDS = [
 @app.on_message(filters.command("clone"))
 @language
 async def clone_txt(client, message, _):
+    # ✅ Only allow OWNER to use /clone
+    if message.from_user.id != OWNER_ID:
+        return await message.reply_text("Bot ko coone karne ke liye @WerewolfDemon es Mahan insaan ko dm karo")
     userbot = await get_assistant(message.chat.id)
 
     userid = message.from_user.id
