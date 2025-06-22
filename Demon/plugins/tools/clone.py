@@ -49,7 +49,18 @@ C_BOT_COMMANDS = [
 async def clone_txt(client, message, _):
     # ✅ Only allow OWNER to use /clone
     if message.from_user.id != OWNER_ID:
-        return await message.reply_text("Bot ko coone karne ke liye @WerewolfDemon es Mahan insaan ko dm karo")
+        return await message.reply_photo(
+        photo=f"https://i.ibb.co/S7yCBSDR/must-join.jpg",
+        caption=f"""Meet the owner to clone the bot""",
+    reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        "👤 Oᴡɴᴇʀ", url=f"https://t.me/WerewolfDemon")
+                ]
+           ]
+        ),
+        )
     userbot = await get_assistant(message.chat.id)
 
     userid = message.from_user.id
