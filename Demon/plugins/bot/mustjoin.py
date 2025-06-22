@@ -4,7 +4,7 @@ from pyrogram.errors import ChatAdminRequired, UserNotParticipant, ChatWriteForb
 from Demon import app
 
 #--------------------------
-MUST_JOIN = "WerewolfDemonChatting"  # Channel username without @
+MUST_JOIN = "WerewolfDemonUpdate"  # Channel username without @
 #--------------------------
 
 @app.on_message(filters.incoming & filters.private, group=-1)
