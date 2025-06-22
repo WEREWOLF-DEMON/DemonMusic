@@ -45,22 +45,26 @@ C_BOT_COMMANDS = [
 
 
 @app.on_message(filters.command("clone"))
-@language
-async def clone_txt(client, message, _):
-    # ✅ Only allow OWNER to use /clone
+@language  # Make sure this decorator is defined in your project
+async def clone_txt(client: Client, message: Message, _):
     if message.from_user.id != OWNER_ID:
-        return await message.reply_photo(
-        photo=f"https://i.ibb.co/S7yCBSDR/must-join.jpg",
-        caption=f"""Meet the owner to clone the bot""",
-    reply_markup=InlineKeyboardMarkup(
-            [
+        await message.reply_photo(
+            photo="https://i.ibb.co/S7yCBSDR/must-join.jpg",
+            caption="Meet the owner to clone the bot",
+            reply_markup=InlineKeyboardMarkup(
                 [
-                    InlineKeyboardButton(
-                        "👤 Oᴡɴᴇʀ", url=f"https://t.me/WerewolfDemon")
+                    [
+                        InlineKeyboardButton(
+                            text="👤 Oᴡɴᴇʀ", url="https://t.me/WerewolfDemon"
+                        )
+                    ]
                 ]
-           ]
-        ),
+            )
         )
+        return
+
+    # ✅ Add your owner-only clone logic here
+    await message.reply_text("✅ Cloning in progress... (Owner verified)")
     userbot = await get_assistant(message.chat.id)
 
     userid = message.from_user.id
