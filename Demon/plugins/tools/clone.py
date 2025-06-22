@@ -106,6 +106,7 @@ async def clone_txt(client, message, _):
                 "support": "WerewolfDemonChatting",
                 "premium" : False,
                 "Date" : False,
+                "verified" : False,
             }
             clonebotdb.insert_one(details)
             CLONES.add(bot.id)
@@ -342,3 +343,25 @@ async def list_cloned_bots(client, message, _):
     except Exception as e:
         logging.exception(e)
         await message.reply_text("An error occurred while listing cloned bots.")
+
+@app.on_message(filters.command("verifybot") & filters.user(OWNER_ID))
+async def verify_bot_command(client, message):
+    if len(message.command) < 2:
+        return await message.reply_text("❌ Usage: /verifybot <bot_username>")
+
+    username = message.command[1].replace("@", "")
+    bot_data = clonebotdb.find_one({"username": username})
+
+    if not bot_data:
+        return await message.reply_text("❌ Bot not found in database.")
+
+    clonebotdb.update_one({"_id": bot_data["_id"]}, {"$set": {"verified": True}})
+    await message.reply_text(f"✅ @{username} has been verified successfully.")
+
+    try:
+        await app.send_message(
+            bot_data["user_id"],
+            f"✅ Aapka bot @{username} verify kar diya gaya hai. Ab wo active hai!"
+        )
+    except:
+        pass
